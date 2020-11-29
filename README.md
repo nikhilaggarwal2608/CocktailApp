@@ -1,3 +1,11 @@
+# Steps to run the application
+
+  1. Download the CocktailApp-main.zip from https://github.com/nikhilaggarwal2608/CocktailApp.
+  2. Unzip the file and open the unzipped folder in visual studio code.
+  3. Open New Terminal from Terminal Menu.
+  4. Run npm install to download the required node modules dependencies.
+  5. Run command ng s -o to open the application in default browser.
+  
 # CocktailApplication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
