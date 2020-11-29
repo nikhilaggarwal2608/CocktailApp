@@ -37,7 +37,8 @@
                 <div class="ui-g">
                     <div class="ui-g-12 ui-md-4">
                         <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
-                            (onChange)="onSortChange()" [style]="{'min-width':'140px'}"></p-dropdown>
+                            (onChange)="onSortChange()" [style]="{'min-width':'140px'}"></p-dropdown><br>
+                            Showing Cocktails Starting with: "{{selectedNameInitial | uppercase }}"
                     </div>
                     <div class="ui-g-6 ui-md-4 filter-container">
                         <div style="position:relative">

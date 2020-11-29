@@ -20,6 +20,7 @@ export class ListCocktailComponent implements OnInit {
   filterKey: string;
   selectedCategory: Drink;
   selectedIngredient: Drink;
+  selectedNameInitial: string = 'a';
 
   private _searchTerm: string;
   get searchTerm(): string {
@@ -57,6 +58,7 @@ export class ListCocktailComponent implements OnInit {
   }
 
   getCocktails(firstLetter: string) {
+    this.selectedNameInitial = firstLetter;
     this.sortKey = null;
     this.filterKey = null;
     this._cocktailService.getCocktailsByFirstLetter(firstLetter).subscribe(data => {
@@ -88,7 +90,7 @@ export class ListCocktailComponent implements OnInit {
   }
 
   clearFilters() {
-    this.getCocktails('a');
+    this.getCocktails(this.selectedNameInitial);
   }
 
 }
