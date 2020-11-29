@@ -1,0 +1,81 @@
+<br>
+<div class="container">
+    <div class="btn-toolbar" style="margin-left: 15%;">
+        <div class="btn-group btn-group-sm">
+          <button (click)="getCocktails('a')" class="btn btn-default">A</button>
+          <button (click)="getCocktails('b')" class="btn btn-default">B</button>
+          <button (click)="getCocktails('c')" class="btn btn-default">C</button>
+          <button (click)="getCocktails('d')" class="btn btn-default">D</button>
+          <button (click)="getCocktails('e')" class="btn btn-default">E</button>
+          <button (click)="getCocktails('f')" class="btn btn-default">F</button>
+          <button (click)="getCocktails('g')" class="btn btn-default">G</button>
+          <button (click)="getCocktails('h')" class="btn btn-default">H</button>
+          <button (click)="getCocktails('i')" class="btn btn-default">I</button>
+          <button (click)="getCocktails('j')" class="btn btn-default">J</button>
+          <button (click)="getCocktails('k')" class="btn btn-default">K</button>
+          <button (click)="getCocktails('l')" class="btn btn-default">L</button>
+          <button (click)="getCocktails('m')" class="btn btn-default">M</button>
+          <button (click)="getCocktails('n')" class="btn btn-default">N</button>
+          <button (click)="getCocktails('o')" class="btn btn-default">O</button>
+          <button (click)="getCocktails('p')" class="btn btn-default">P</button>
+          <button (click)="getCocktails('q')" class="btn btn-default">Q</button>
+          <button (click)="getCocktails('r')" class="btn btn-default">R</button>
+          <button (click)="getCocktails('s')" class="btn btn-default">S</button>
+          <button (click)="getCocktails('t')" class="btn btn-default">T</button>
+          <button (click)="getCocktails('u')" class="btn btn-default">U</button>
+          <button (click)="getCocktails('v')" class="btn btn-default">V</button>
+          <button (click)="getCocktails('w')" class="btn btn-default">W</button>
+          <button (click)="getCocktails('x')" class="btn btn-default">X</button>
+          <button (click)="getCocktails('y')" class="btn btn-default">Y</button>
+          <button (click)="getCocktails('z')" class="btn btn-default">Z</button>
+        </div>
+      </div>
+      <br>
+    <p-dataView #dv [value]="filteredCocktails" [paginator]="true" [rows]="20" paginatorPosition="both">
+        <p-header>
+            <div class="ui-helper-clearfix">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-4">
+                        <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+                            (onChange)="onSortChange()" [style]="{'min-width':'140px'}"></p-dropdown>
+                    </div>
+                    <div class="ui-g-6 ui-md-4 filter-container">
+                        <div style="position:relative">
+                            <p-dropdown [options]="filterOptions" [(ngModel)]="filterKey" placeholder="Filter By"
+                                (onChange)="onFilterChange()" [style]="{'min-width':'140px'}"></p-dropdown>
+                            <input *ngIf="filterKey == 'name'" type="search" pInputText placeholder="Search by Name"
+                                [(ngModel)]="searchTerm">
+                            <p-dropdown *ngIf="filterKey == 'category'" [options]="Categories" (onChange)="onCategoryOrIngredientChange()"
+                                [(ngModel)]="selectedCategory" optionLabel="strCategory" placeholder="Select Category"
+                                 [style]="{'min-width':'140px'}"></p-dropdown>
+                            <p-dropdown *ngIf="filterKey == 'ingredient'" [options]="Ingredients" (onChange)="onCategoryOrIngredientChange()"
+                                [(ngModel)]="selectedIngredient" optionLabel="strIngredient1"
+                                placeholder="Select Ingredient" 
+                                [style]="{'min-width':'140px'}"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-6 ui-md-4" style="text-align:right">
+                        <i class="pi pi-refresh" style="font-size: 2em; cursor: pointer;" pTooltip="Clear Filters" (click)="clearFilters()"></i>
+                    </div>
+                </div>
+            </div>
+        </p-header>
+        <ng-template let-cocktail pTemplate="listItem">
+            <div class="ui-g-12">
+                <div class="cocktail-details">
+                    <div>
+                        <img [src]="cocktail.strDrinkThumb" style="width: 150px; height: 150px;">
+                        <div class="ui-g">
+                            <div class="ui-g-12">Name: <b>{{cocktail.strDrink}}</b></div>
+                            <div class="ui-g-12">Category: <b>{{cocktail.strCategory}}</b></div>
+                            <div class="ui-g-12">Type: <b>{{cocktail.strAlcoholic}}</b></div>
+                            <div class="ui-g-12">Glass: <b>{{cocktail.strGlass}}</b></div>
+                        </div>
+                    </div>
+                    <button pButton type="button" label="View Details" [routerLink]="['/cocktails', cocktail.idDrink]"></button>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+<br>

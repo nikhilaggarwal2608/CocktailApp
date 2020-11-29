@@ -1,0 +1,24 @@
+.cocktail-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+    border-bottom: 1px solid #d9dad9;
+}
+
+.cocktail-details > div {
+    display: flex;
+    align-items: center;
+}
+
+.cocktail-details img {
+    margin-right: 14px;
+}
+
+.ui-g {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
